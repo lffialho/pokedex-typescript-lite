@@ -1,21 +1,10 @@
-import { CatalogoPokemon } from "./models/CatalogoPokemon"
-import { PokemonResumo } from "./models/Pokemon"
+import { BoxService } from "./services/BoxService"
 
-const pikachu: PokemonResumo = {
-  id: 25,
-  nome: "pikachu",
-  tipos: ["electric"],
-  altura: 4,
-  peso: 60,
-  hp: 35,
-  ataque: 55,
-  defesa: 40,
+async function main(): Promise<void> {
+  const box = new BoxService();
+  const pokemons = await box.carregar()
+
+  console.log(pokemons)
 }
 
-const catalogo = new CatalogoPokemon()
-
-console.log(catalogo.adicionar(pikachu))
-console.log(catalogo.adicionar(pikachu))
-console.log(catalogo.listar().length)
-console.log(catalogo.remover(25))
-console.log(catalogo.remover(25))
+main()
