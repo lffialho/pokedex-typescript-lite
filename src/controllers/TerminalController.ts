@@ -1,3 +1,4 @@
+import { createInterface } from "node:readline/promises"
 import { CatalogoPokemon } from "../models/CatalogoPokemon"
 import { PokemonResumo } from "../models/Pokemon"
 import { BoxService } from "../services/BoxService"
@@ -70,7 +71,7 @@ export class TerminalController {
       return
     }
 
-    await this.box.salvar(this.catalogo.listar());
+    await this.box.salvar(this.catalogo.listar())
     console.log("Pokémon removido do catálogo.")
   }
 
@@ -107,5 +108,46 @@ export class TerminalController {
 
     console.log("")
     await this.esvaziarCaixa()
+  }
+
+  async executarMenu(): Promise<void> {
+    const leitor = createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    let continuar = true
+
+    while (continuar) {
+      console.log("### Pokédex TypeScript Lite ###")
+      console.log("1  Buscar e adicionar Pokémon")
+      console.log("2  Listar catálogo")
+      console.log("3  Remover Pokémon pelo ID")
+      console.log("0  Sair")
+
+      const opcao = (await leitor.question("Escolha uma opção: ")).trim()
+
+      if (opcao === "1") {
+        const termo = await leitor.question("Nome ou ID do Pokémon: ")
+        await this.buscarEAdicionar(termo)
+      } else if (opcao === "2") {
+        this.listar()
+      } else if (opcao === "3") {
+        const texto = await leitor.question("ID do Pokémon: ")
+        const id = Number(texto)
+
+        if (Number.isInteger(id)) {
+          await this.remover(id)
+        } else {
+          console.log("ID inválido. Digite um número inteiro")
+        }
+      } else if (opcao === "0") {
+        continuar = false
+      } else {
+        console.log("Opção inválida.")
+      }
+    }
+
+    leitor.close()
+    console.log("FIM!")
   }
 }
