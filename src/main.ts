@@ -1,11 +1,22 @@
-import { PokeApiService } from "./services/PokeApiService"
+import { CatalogoPokemon } from "./models/CatalogoPokemon"
+import { PokemonResumo } from "./models/Pokemon"
 
-async function main(): Promise<void> {
-  const pokeApi = new PokeApiService();
-
-  console.log(await pokeApi.buscarPokemon("pikachu"))
-  console.log(await pokeApi.buscarPokemon("pokemon-inexistente"))
-  console.log(await pokeApi.buscarPokemon("   "))
+const pikachu: PokemonResumo = {
+  id: 25,
+  nome: "pikachu",
+  tipos: ["electric"],
+  altura: 4,
+  peso: 60,
+  hp: 35,
+  ataque: 55,
+  defesa: 40,
 }
 
-main()
+const catalogo = new CatalogoPokemon()
+
+catalogo.adicionar(pikachu)
+catalogo.adicionar(pikachu)
+console.log(catalogo.listar().length)
+
+catalogo.remover(25)
+console.log(catalogo.listar().length)
