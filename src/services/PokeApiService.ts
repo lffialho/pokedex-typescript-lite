@@ -9,7 +9,7 @@ export class PokeApiService {
     const termo = normalizarBusca(nomeOuId)
 
     if (termo === "") {
-      console.log("[ERRO] Informe o nome ou o ID do Pokémon.")
+      console.log("Informe o nome ou o ID do Pokémon.")
       return null
     }
 
@@ -30,7 +30,7 @@ export class PokeApiService {
       if (erro instanceof ApiError) {
         console.log(`[ERRO] ${erro.message}`)
       } else {
-        console.log("[ERRO] Não foi possível buscar o Pokémon.")
+        console.log("Não foi possível buscar o Pokémon.")
       }
       return null
     }
