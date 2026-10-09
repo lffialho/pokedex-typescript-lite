@@ -32,6 +32,8 @@ npm install
 
 ## Como rodar
 
+| Comando | O que faz |
+| --- | --- |
 | `npm run start` | Compila e roda uma demonstração de tudo que o programa faz. Começa e termina com a caixa vazia.
 | `npm run menu` | Compila e abre o menu. A lista fica salva em `pc_box.json`.
 | `npm run dev` | Roda o TypeScript direto com tsx.
@@ -124,6 +126,7 @@ pokedex-typescript-lite/
 ```
 
 | Arquivo | Pra que serve 
+| --- | --- |
 | `main.ts` | Cria os objetos, conecta um no outro e abre o menu. 
 | `TerminalController.ts` | Mostra as mensagens no terminal e controla os serviços. 
 | `PokeApiService.ts` | Consulta a PokeAPI com `fetch` e converte o JSON em `PokemonResumo`. 
