@@ -14,9 +14,8 @@ const pikachu: PokemonResumo = {
 
 const catalogo = new CatalogoPokemon()
 
-catalogo.adicionar(pikachu)
-catalogo.adicionar(pikachu)
+console.log(catalogo.adicionar(pikachu))
+console.log(catalogo.adicionar(pikachu))
 console.log(catalogo.listar().length)
-
-catalogo.remover(25)
-console.log(catalogo.listar().length)
+console.log(catalogo.remover(25))
+console.log(catalogo.remover(25))
