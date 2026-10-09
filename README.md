@@ -1,0 +1,1 @@
+# Pokédex TypeScript Lite
