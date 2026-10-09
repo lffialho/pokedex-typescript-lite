@@ -1,0 +1,29 @@
+{
+  "name": "pokedex-typescript-lite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+  "dev": "tsx src/main.ts",
+  "build": "tsc",
+  "start": "npm run build && node dist/main.js",
+  "menu": "npm run build && node dist/main.js menu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lffialho/pokedex-typescript-lite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lffialho/pokedex-typescript-lite/issues"
+  },
+  "homepage": "https://github.com/lffialho/pokedex-typescript-lite#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}
